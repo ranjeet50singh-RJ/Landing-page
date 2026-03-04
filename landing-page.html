@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Money Basics — The course nobody taught you. Free. 45 minutes. Changes how you think about money forever.">
+<meta property="og:title" content="Money Basics — The Course Nobody Taught You">
+<meta property="og:description" content="5–10 years into your career. Earning. But nobody ever explained how money actually works. This is that conversation.">
+<title>Basics First — Money Basics</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0f0f1a;
+  --cream: #faf8f2;
+  --warm: #f4ede0;
+  --gold: #c9a84c;
+  --gold-light: #e8d5a3;
+  --gold-pale: #fdf6e3;
+  --sage: #4a7060;
+  --rust: #b85030;
+  --muted: #7a7060;
+  --border: #ddd5c0;
+  --white: #ffffff;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior:smooth; }
+
+body {
+  font-family:'DM Sans',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  overflow-x:hidden;
+}
+
+/* ── GRAIN OVERLAY ── */
+body::after {
+  content:'';
+  position:fixed; inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events:none; z-index:9999; opacity:0.6;
+}
+
+/* ── NAV ── */
+.nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  padding:0 40px; height:58px;
+  display:flex; align-items:center; justify-content:space-between;
+  background:rgba(250,248,242,0.92); backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(201,168,76,0.15);
+  transition:all 0.3s;
+}
+.nav-logo {
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px; font-weight:700; color:var(--gold);
+  letter-spacing:0.3px;
+}
+.nav-cta {
+  background:var(--ink); color:var(--cream);
+  border:none; padding:9px 22px; font-size:13px;
+  font-weight:500; cursor:pointer; border-radius:3px;
+  font-family:'DM Sans',sans-serif;
+  transition:all 0.2s; letter-spacing:0.2px;
+  text-decoration:none; display:inline-block;
+}
+.nav-cta:hover { background:var(--gold); color:var(--ink); }
+
+/* ── HERO ── */
+.hero {
+  min-height:100vh;
+  display:flex; flex-direction:column; justify-content:center;
+  padding:100px 40px 80px;
+  max-width:1100px; margin:0 auto;
+  position:relative;
+}
+
+/* Big decorative background text */
+.hero-bg-text {
+  position:absolute;
+  top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(100px,18vw,220px);
+  font-weight:700; color:var(--gold);
+  opacity:0.04; white-space:nowrap;
+  pointer-events:none; user-select:none;
+  letter-spacing:-4px;
+}
+
+.hero-inner {
+  display:grid; grid-template-columns:1fr auto;
+  gap:60px; align-items:center;
+  position:relative; z-index:1;
+}
+
+.hero-left { max-width:580px; }
+
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--gold-pale); border:1px solid var(--gold-light);
+  padding:6px 14px; border-radius:20px;
+  font-size:11px; font-weight:600; letter-spacing:2px;
+  text-transform:uppercase; color:var(--rust);
+  margin-bottom:28px;
+  animation:fadeUp 0.6s ease both;
+}
+
+.hero-eyebrow::before { content:'●'; font-size:8px; color:var(--gold); }
+
+.hero-h1 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(40px,6vw,72px);
+  line-height:1.05; font-weight:700;
+  margin-bottom:24px; color:var(--ink);
+  animation:fadeUp 0.6s 0.1s ease both;
+}
+
+.hero-h1 em { font-style:italic; color:var(--gold); }
+
+.hero-p {
+  font-size:17px; color:var(--muted);
+  line-height:1.8; margin-bottom:40px;
+  max-width:480px;
+  animation:fadeUp 0.6s 0.2s ease both;
+}
+
+.hero-actions {
+  display:flex; align-items:center; gap:20px; flex-wrap:wrap;
+  animation:fadeUp 0.6s 0.3s ease both;
+}
+
+.btn-primary {
+  display:inline-flex; align-items:center; gap:10px;
+  background:var(--ink); color:var(--cream);
+  padding:16px 32px; font-size:15px; font-weight:500;
+  border:none; cursor:pointer; border-radius:4px;
+  font-family:'DM Sans',sans-serif;
+  transition:all 0.25s; letter-spacing:0.2px;
+  text-decoration:none;
+  box-shadow:0 4px 20px rgba(15,15,26,0.15);
+}
+.btn-primary:hover {
+  background:var(--gold); color:var(--ink);
+  transform:translateY(-2px);
+  box-shadow:0 8px 28px rgba(201,168,76,0.3);
+}
+.btn-primary svg { transition:transform 0.2s; }
+.btn-primary:hover svg { transform:translateX(4px); }
+
+.hero-note {
+  font-size:13px; color:var(--muted);
+  display:flex; align-items:center; gap:6px;
+}
+.hero-note::before { content:'✓'; color:var(--sage); font-weight:700; }
+
+/* Arjun hero card */
+.hero-arjun {
+  background:white;
+  border:2px solid var(--border);
+  border-radius:16px;
+  padding:28px 24px;
+  text-align:center;
+  width:220px; flex-shrink:0;
+  box-shadow:6px 6px 0 var(--border);
+  animation:fadeUp 0.6s 0.4s ease both;
+  position:relative;
+}
+
+.hero-arjun-label {
+  font-size:9px; font-weight:700; letter-spacing:2.5px;
+  text-transform:uppercase; color:var(--gold);
+  margin-bottom:12px;
+}
+
+.arjun-bubble {
+  background:var(--gold-pale);
+  border:1.5px solid var(--gold-light);
+  border-radius:10px; padding:10px 14px;
+  font-family:'Caveat',cursive;
+  font-size:15px; font-weight:700;
+  line-height:1.4; margin-top:14px;
+  color:var(--ink);
+}
+
+/* ── STATS STRIP ── */
+.stats-strip {
+  background:var(--ink);
+  padding:32px 40px;
+}
+.stats-inner {
+  max-width:1100px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:0; text-align:center;
+}
+.stat-item {
+  padding:0 20px;
+  border-right:1px solid rgba(255,255,255,0.08);
+}
+.stat-item:last-child { border-right:none; }
+.stat-num {
+  font-family:'Cormorant Garamond',serif;
+  font-size:44px; font-weight:700; color:var(--gold);
+  line-height:1; margin-bottom:6px; display:block;
+}
+.stat-label { font-size:12px; color:rgba(250,248,242,0.5); font-weight:500; letter-spacing:0.5px; }
+
+/* ── SECTION BASE ── */
+section { padding:100px 40px; }
+.section-inner { max-width:1100px; margin:0 auto; }
+
+.section-eyebrow {
+  font-size:10px; font-weight:700; letter-spacing:3px;
+  text-transform:uppercase; color:var(--gold);
+  margin-bottom:14px;
+}
+.section-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(32px,4vw,52px);
+  font-weight:700; line-height:1.1;
+  margin-bottom:20px;
+}
+.section-title em { font-style:italic; color:var(--gold); }
+.section-sub {
+  font-size:16px; color:var(--muted);
+  line-height:1.8; max-width:560px;
+  margin-bottom:60px;
+}
+
+/* ── WHAT YOU LEARN ── */
+.learn-section { background:var(--warm); }
+
+.modules-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.module-card {
+  background:white; border:1.5px solid var(--border);
+  border-radius:10px; padding:24px;
+  transition:all 0.25s; cursor:default;
+  position:relative; overflow:hidden;
+}
+
+.module-card::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0;
+  height:3px; background:var(--gold);
+  transform:scaleX(0); transform-origin:left;
+  transition:transform 0.3s;
+}
+
+.module-card:hover { border-color:var(--gold-light); transform:translateY(-3px); box-shadow:0 8px 24px rgba(201,168,76,0.1); }
+.module-card:hover::before { transform:scaleX(1); }
+
+.module-num { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+.module-title { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; margin-bottom:8px; line-height:1.2; }
+.module-desc { font-size:13px; color:var(--muted); line-height:1.6; }
+.module-time { font-size:11px; color:var(--border); margin-top:12px; font-weight:600; }
+
+/* ── HOW IT WORKS ── */
+.how-grid {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:0; position:relative;
+}
+
+.how-grid::before {
+  content:'';
+  position:absolute; top:32px; left:10%; right:10%; height:1px;
+  background:repeating-linear-gradient(90deg,var(--gold) 0,var(--gold) 6px,transparent 6px,transparent 14px);
+  z-index:0;
+}
+
+.how-step {
+  padding:0 20px; text-align:center; position:relative; z-index:1;
+}
+
+.how-icon {
+  width:64px; height:64px; border-radius:50%;
+  background:white; border:2px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  font-size:24px; margin:0 auto 16px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.06);
+}
+
+.how-step-num {
+  font-size:10px; font-weight:700; letter-spacing:2px;
+  text-transform:uppercase; color:var(--gold); margin-bottom:8px;
+}
+.how-step-title { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:600; margin-bottom:8px; }
+.how-step-desc { font-size:13px; color:var(--muted); line-height:1.6; }
+
+/* ── ARJUN SECTION ── */
+.arjun-section { background:var(--ink); color:var(--cream); overflow:hidden; position:relative; }
+
+.arjun-section::before {
+  content:'';
+  position:absolute; top:-100px; right:-100px;
+  width:500px; height:500px; border-radius:50%;
+  background:radial-gradient(circle,rgba(201,168,76,0.08) 0%,transparent 70%);
+}
+
+.arjun-inner {
+  max-width:1100px; margin:0 auto; padding:0;
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:80px; align-items:center;
+}
+
+.arjun-content { position:relative; z-index:1; }
+
+.arjun-eyebrow { font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
+.arjun-title { font-family:'Cormorant Garamond',serif; font-size:clamp(30px,4vw,48px); font-weight:700; line-height:1.1; margin-bottom:20px; }
+.arjun-title em { font-style:italic; color:var(--gold); }
+.arjun-p { font-size:15px; color:rgba(250,248,242,0.7); line-height:1.8; margin-bottom:16px; }
+
+.arjun-traits { display:flex; flex-direction:column; gap:10px; margin-top:28px; }
+.trait {
+  display:flex; align-items:center; gap:12px;
+  font-size:14px; color:rgba(250,248,242,0.8);
+}
+.trait-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); flex-shrink:0; }
+
+.arjun-visual {
+  display:flex; flex-direction:column; align-items:center; gap:20px;
+  position:relative; z-index:1;
+}
+
+.arjun-expressions {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:12px; width:100%;
+}
+
+.expr-card {
+  background:rgba(255,255,255,0.05); border:1px solid rgba(201,168,76,0.2);
+  border-radius:10px; padding:16px 12px; text-align:center;
+  transition:all 0.2s;
+}
+.expr-card:hover { background:rgba(255,255,255,0.08); border-color:rgba(201,168,76,0.4); }
+.expr-name { font-size:11px; color:var(--gold-light); margin-top:8px; font-weight:600; }
+
+/* ── TESTIMONIALS ── */
+.testimonials-section { background:var(--cream); }
+
+.testimonials-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.tcard {
+  background:white; border:1.5px solid var(--border);
+  border-radius:10px; padding:28px;
+  position:relative;
+}
+
+.tcard::before {
+  content:'"';
+  font-family:'Cormorant Garamond',serif;
+  font-size:64px; color:var(--gold); opacity:0.2;
+  position:absolute; top:12px; left:20px; line-height:1;
+}
+
+.tcard-text {
+  font-size:15px; color:var(--ink); line-height:1.7;
+  margin-bottom:20px; position:relative; z-index:1;
+  padding-top:20px;
+}
+
+.tcard-person { display:flex; align-items:center; gap:12px; }
+.tcard-avatar {
+  width:40px; height:40px; border-radius:50%;
+  background:var(--gold-pale); border:2px solid var(--gold-light);
+  display:flex; align-items:center; justify-content:center;
+  font-size:18px;
+}
+.tcard-name { font-size:14px; font-weight:600; color:var(--ink); }
+.tcard-role { font-size:12px; color:var(--muted); }
+.tcard-stars { color:var(--gold); font-size:12px; margin-top:2px; }
+
+/* ── WHAT'S INSIDE ── */
+.inside-section { background:var(--warm); }
+.inside-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:60px; align-items:start;
+}
+
+.inside-list { display:flex; flex-direction:column; gap:0; }
+.inside-item {
+  display:flex; gap:18px; padding:20px 0;
+  border-bottom:1px solid var(--border);
+  align-items:flex-start;
+}
+.inside-item:last-child { border-bottom:none; }
+.inside-icon { font-size:22px; flex-shrink:0; margin-top:2px; }
+.inside-text strong { display:block; font-size:15px; font-weight:600; color:var(--ink); margin-bottom:3px; }
+.inside-text span { font-size:13px; color:var(--muted); line-height:1.5; }
+
+.inside-preview {
+  background:var(--ink); border-radius:12px; overflow:hidden;
+  box-shadow:8px 8px 0 rgba(0,0,0,0.1);
+}
+.preview-header {
+  background:rgba(255,255,255,0.05); padding:14px 20px;
+  display:flex; align-items:center; gap:8px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.pdot { width:10px; height:10px; border-radius:50%; }
+.preview-body { padding:24px 20px; }
+.preview-module {
+  background:rgba(255,255,255,0.04); border:1px solid rgba(201,168,76,0.15);
+  border-radius:8px; padding:16px; margin-bottom:10px;
+  display:flex; align-items:center; gap:14px;
+  transition:all 0.2s; cursor:default;
+}
+.preview-module:hover { background:rgba(255,255,255,0.07); border-color:rgba(201,168,76,0.3); }
+.preview-module:last-child { margin-bottom:0; }
+.pm-num { font-size:10px; font-weight:700; letter-spacing:2px; color:var(--gold); width:24px; }
+.pm-title { font-size:13px; font-weight:500; color:rgba(250,248,242,0.85); flex:1; }
+.pm-time { font-size:11px; color:rgba(250,248,242,0.3); }
+.pm-icon { font-size:16px; }
+
+/* ── CTA SECTION ── */
+.cta-section {
+  background:var(--ink); text-align:center;
+  position:relative; overflow:hidden;
+}
+
+.cta-section::before {
+  content:'';
+  position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  width:800px; height:800px; border-radius:50%;
+  background:radial-gradient(circle,rgba(201,168,76,0.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+
+.cta-inner { max-width:640px; margin:0 auto; position:relative; z-index:1; }
+
+.cta-tag {
+  display:inline-block;
+  background:rgba(201,168,76,0.12); border:1px solid rgba(201,168,76,0.25);
+  color:var(--gold); font-size:11px; font-weight:600;
+  letter-spacing:2px; text-transform:uppercase;
+  padding:6px 16px; border-radius:20px; margin-bottom:28px;
+}
+
+.cta-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(36px,5vw,60px); font-weight:700;
+  line-height:1.05; color:var(--cream); margin-bottom:20px;
+}
+.cta-title em { font-style:italic; color:var(--gold); }
+
+.cta-sub { font-size:16px; color:rgba(250,248,242,0.55); line-height:1.8; margin-bottom:44px; }
+
+.cta-btn {
+  display:inline-flex; align-items:center; gap:12px;
+  background:var(--gold); color:var(--ink);
+  padding:18px 40px; font-size:16px; font-weight:600;
+  border:none; cursor:pointer; border-radius:4px;
+  font-family:'DM Sans',sans-serif; text-decoration:none;
+  transition:all 0.25s; letter-spacing:0.2px;
+  box-shadow:0 4px 24px rgba(201,168,76,0.3);
+}
+.cta-btn:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(201,168,76,0.4); background:#d4b055; }
+.cta-btn svg { transition:transform 0.2s; }
+.cta-btn:hover svg { transform:translateX(4px); }
+
+.cta-meta {
+  margin-top:20px; font-size:13px; color:rgba(250,248,242,0.35);
+  display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap;
+}
+.cta-meta span { display:flex; align-items:center; gap:6px; }
+.cta-meta span::before { content:'✓'; color:var(--gold); font-weight:700; }
+
+/* ── FOOTER ── */
+footer {
+  background:var(--ink); border-top:1px solid rgba(255,255,255,0.05);
+  padding:28px 40px; text-align:center;
+}
+footer p { font-size:13px; color:rgba(250,248,242,0.25); }
+footer strong { color:var(--gold); font-weight:600; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+.reveal {
+  opacity:0; transform:translateY(24px);
+  transition:opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px) {
+  .hero-inner { grid-template-columns:1fr; gap:40px; }
+  .hero-arjun { display:none; }
+  .stats-inner { grid-template-columns:repeat(2,1fr); gap:20px; }
+  .stat-item { border-right:none; padding:16px; }
+  .modules-grid { grid-template-columns:1fr 1fr; }
+  .how-grid { grid-template-columns:repeat(2,1fr); gap:32px; }
+  .how-grid::before { display:none; }
+  .arjun-inner { grid-template-columns:1fr; }
+  .arjun-visual { display:none; }
+  .testimonials-grid { grid-template-columns:1fr; }
+  .inside-grid { grid-template-columns:1fr; }
+  .inside-preview { display:none; }
+}
+
+@media(max-width:600px) {
+  .nav { padding:0 20px; }
+  section { padding:70px 20px; }
+  .hero { padding:90px 20px 60px; }
+  .modules-grid { grid-template-columns:1fr; }
+  .how-grid { grid-template-columns:1fr; }
+  .stats-strip { padding:28px 20px; }
+  .arjun-expressions { grid-template-columns:repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- ── ARJUN SVG DEFS ── -->
+<svg width="0" height="0" style="position:absolute">
+<defs>
+  <symbol id="a-smug" viewBox="0 0 120 160">
+    <rect x="30" y="85" width="60" height="55" rx="8" fill="#2a5298"/>
+    <polygon points="50,85 60,100 70,85" fill="white" opacity="0.9"/>
+    <rect x="50" y="75" width="20" height="14" rx="4" fill="#f4a261"/>
+    <ellipse cx="60" cy="58" rx="28" ry="30" fill="#f4a261"/>
+    <ellipse cx="60" cy="32" rx="26" ry="12" fill="#1a1a2e"/>
+    <rect x="34" y="32" width="52" height="12" fill="#1a1a2e"/>
+    <ellipse cx="48" cy="55" rx="7" ry="5" fill="white"/>
+    <ellipse cx="72" cy="55" rx="7" ry="5" fill="white"/>
+    <ellipse cx="49" cy="56" rx="4" ry="3.5" fill="#1a1a2e"/>
+    <ellipse cx="73" cy="56" rx="4" ry="3.5" fill="#1a1a2e"/>
+    <circle cx="51" cy="54" r="1.2" fill="white"/>
+    <circle cx="75" cy="54" r="1.2" fill="white"/>
+    <path d="M41 46 Q48 42 55 46" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M65 46 Q72 42 79 46" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M50 70 Q60 78 70 70" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <rect x="8" y="88" width="22" height="10" rx="5" fill="#2a5298" transform="rotate(-15,19,93)"/>
+    <rect x="90" y="88" width="22" height="10" rx="5" fill="#2a5298" transform="rotate(15,101,93)"/>
+  </symbol>
+  <symbol id="a-shock" viewBox="0 0 120 160">
+    <rect x="30" y="85" width="60" height="55" rx="8" fill="#2a5298"/>
+    <polygon points="50,85 60,100 70,85" fill="white" opacity="0.9"/>
+    <rect x="50" y="75" width="20" height="14" rx="4" fill="#f4a261"/>
+    <ellipse cx="60" cy="58" rx="28" ry="30" fill="#f4a261"/>
+    <ellipse cx="60" cy="32" rx="26" ry="12" fill="#1a1a2e"/>
+    <rect x="34" y="32" width="52" height="12" fill="#1a1a2e"/>
+    <ellipse cx="48" cy="55" rx="9" ry="9" fill="white"/>
+    <ellipse cx="72" cy="55" rx="9" ry="9" fill="white"/>
+    <ellipse cx="48" cy="56" rx="5.5" ry="5.5" fill="#1a1a2e"/>
+    <ellipse cx="72" cy="56" rx="5.5" ry="5.5" fill="#1a1a2e"/>
+    <circle cx="50" cy="53" r="1.5" fill="white"/>
+    <circle cx="74" cy="53" r="1.5" fill="white"/>
+    <path d="M39 43 Q48 37 56 42" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M64 42 Q72 37 81 43" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="60" cy="73" rx="7" ry="6" fill="#1a1a2e"/>
+    <ellipse cx="60" cy="73" rx="5" ry="4" fill="#8b3a3a"/>
+    <path d="M88 38 Q91 34 89 42 Q87 46 85 42 Q83 36 88 38Z" fill="#74b9ff"/>
+  </symbol>
+  <symbol id="a-proud" viewBox="0 0 120 160">
+    <rect x="30" y="85" width="60" height="55" rx="8" fill="#27ae60"/>
+    <polygon points="50,85 60,100 70,85" fill="white" opacity="0.9"/>
+    <rect x="50" y="75" width="20" height="14" rx="4" fill="#f4a261"/>
+    <ellipse cx="60" cy="58" rx="28" ry="30" fill="#f4a261"/>
+    <ellipse cx="60" cy="32" rx="26" ry="12" fill="#1a1a2e"/>
+    <rect x="34" y="32" width="52" height="12" fill="#1a1a2e"/>
+    <path d="M41 53 Q48 48 55 53" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M65 53 Q72 48 79 53" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M41 44 Q48 40 55 44" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M65 44 Q72 40 79 44" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M46 68 Q60 82 74 68" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <rect x="82" y="60" width="14" height="26" rx="7" fill="#27ae60"/>
+    <rect x="83" y="50" width="12" height="16" rx="6" fill="#f4a261"/>
+    <text x="18" y="38" font-size="14">⭐</text>
+    <text x="88" y="36" font-size="12">✨</text>
+  </symbol>
+  <symbol id="a-dead" viewBox="0 0 120 160">
+    <rect x="30" y="92" width="60" height="55" rx="8" fill="#636e72"/>
+    <polygon points="50,92 60,107 70,92" fill="white" opacity="0.6"/>
+    <rect x="50" y="82" width="20" height="14" rx="4" fill="#f4a261"/>
+    <ellipse cx="60" cy="63" rx="28" ry="30" fill="#f4a261"/>
+    <ellipse cx="60" cy="37" rx="26" ry="12" fill="#1a1a2e"/>
+    <rect x="34" y="37" width="52" height="12" fill="#1a1a2e"/>
+    <ellipse cx="48" cy="60" rx="7" ry="4" fill="white"/>
+    <ellipse cx="72" cy="60" rx="7" ry="4" fill="white"/>
+    <rect x="41" y="56" width="14" height="5" rx="2" fill="#f4a261" opacity="0.9"/>
+    <rect x="65" y="56" width="14" height="5" rx="2" fill="#f4a261" opacity="0.9"/>
+    <ellipse cx="48" cy="61" rx="3.5" ry="2.5" fill="#555"/>
+    <ellipse cx="72" cy="61" rx="3.5" ry="2.5" fill="#555"/>
+    <path d="M41 52 Q48 55 55 52" stroke="#1a1a2e" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M65 52 Q72 55 79 52" stroke="#1a1a2e" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <line x1="50" y1="76" x2="70" y2="76" stroke="#1a1a2e" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M38 65 Q40 62 39 70 Q37 74 35 70 Q33 64 38 65Z" fill="#74b9ff" opacity="0.8"/>
+    <path d="M84 68 Q86 65 85 73 Q83 77 81 73 Q79 67 84 68Z" fill="#74b9ff" opacity="0.8"/>
+  </symbol>
+  <symbol id="a-awkward" viewBox="0 0 120 160">
+    <rect x="30" y="85" width="60" height="55" rx="8" fill="#2a5298"/>
+    <polygon points="50,85 60,100 70,85" fill="white" opacity="0.9"/>
+    <rect x="50" y="75" width="20" height="14" rx="4" fill="#f4a261"/>
+    <ellipse cx="60" cy="58" rx="28" ry="30" fill="#f4a261"/>
+    <ellipse cx="60" cy="32" rx="26" ry="12" fill="#1a1a2e"/>
+    <rect x="34" y="32" width="52" height="12" fill="#1a1a2e"/>
+    <ellipse cx="48" cy="55" rx="7" ry="6" fill="white"/>
+    <ellipse cx="72" cy="55" rx="7" ry="6" fill="white"/>
+    <ellipse cx="51" cy="56" rx="4" ry="4" fill="#1a1a2e"/>
+    <ellipse cx="75" cy="56" rx="4" ry="4" fill="#1a1a2e"/>
+    <path d="M48 70 Q55 75 65 68" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="40" cy="64" rx="8" ry="5" fill="#ffb3b3" opacity="0.5"/>
+    <ellipse cx="80" cy="64" rx="8" ry="5" fill="#ffb3b3" opacity="0.5"/>
+    <path d="M84 44 Q87 40 85 48 Q83 52 81 48 Q79 42 84 44Z" fill="#74b9ff"/>
+  </symbol>
+  <symbol id="a-think" viewBox="0 0 120 160">
+    <rect x="30" y="85" width="60" height="55" rx="8" fill="#6c5ce7"/>
+    <polygon points="50,85 60,100 70,85" fill="white" opacity="0.9"/>
+    <rect x="50" y="75" width="20" height="14" rx="4" fill="#f4a261"/>
+    <ellipse cx="60" cy="58" rx="28" ry="30" fill="#f4a261"/>
+    <ellipse cx="60" cy="32" rx="26" ry="12" fill="#1a1a2e"/>
+    <rect x="34" y="32" width="52" height="12" fill="#1a1a2e"/>
+    <path d="M41 44 Q48 49 55 44" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M65 47 Q72 42 79 46" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="48" cy="55" rx="7" ry="6" fill="white"/>
+    <ellipse cx="72" cy="55" rx="7" ry="6" fill="white"/>
+    <ellipse cx="48" cy="56" rx="4" ry="4" fill="#1a1a2e"/>
+    <ellipse cx="72" cy="56" rx="4" ry="4" fill="#1a1a2e"/>
+    <path d="M48 70 Q53 66 58 70 Q63 74 68 70" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <rect x="8" y="92" width="26" height="10" rx="5" fill="#6c5ce7" transform="rotate(-30,21,97)"/>
+    <ellipse cx="22" cy="82" rx="9" ry="8" fill="#f4a261"/>
+    <text x="84" y="42" font-size="16" fill="#6c5ce7" font-weight="bold">?</text>
+    <text x="92" y="58" font-size="11" fill="#6c5ce7" font-weight="bold">?</text>
+  </symbol>
+</defs>
+</svg>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <div class="nav-logo">Basics First</div>
+  <a class="nav-cta" href="course-v3-arjun.html">Start Free Course →</a>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section style="padding:0; background:var(--cream);">
+  <div class="hero">
+    <div class="hero-bg-text">BASICS</div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-eyebrow">Free · 45 Minutes · Starts Now</div>
+        <h1 class="hero-h1">
+          The money course<br>
+          nobody <em>ever</em><br>
+          taught you.
+        </h1>
+        <p class="hero-p">
+          You've been earning for years. But nobody ever sat you down and properly explained how money actually works. Not school. Not your parents. Not your company. This is that conversation — finally.
+        </p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="course-v3-arjun.html">
+            Start Learning Free
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <span class="hero-note">No signup. No payment. Just start.</span>
+        </div>
+      </div>
+
+      <div class="hero-arjun">
+        <div class="hero-arjun-label">Meet your guide</div>
+        <svg width="130" height="173" viewBox="0 0 120 160"><use href="#a-smug"/></svg>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:600; margin-top:8px;">Arjun, 29</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:4px;">Software Engineer</div>
+        <div class="arjun-bubble">"Earned well for 5 years. Had no idea what I was doing. Then I learned the basics. Game changed." 💡</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ── -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-num">45</span>
+      <span class="stat-label">Minutes to complete</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">6</span>
+      <span class="stat-label">Core modules</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">5</span>
+      <span class="stat-label">Languages</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">0</span>
+      <span class="stat-label">Rupees to start</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     WHAT YOU LEARN
+══════════════════════════════════════ -->
+<section class="learn-section">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">What's inside</div>
+    <h2 class="section-title reveal">Six modules. <em>One complete picture.</em></h2>
+    <p class="section-sub reveal">Each module builds on the last. By the end, you'll have a mental map of money that most people spend years trying to build on their own.</p>
+
+    <div class="modules-grid">
+      <div class="module-card reveal">
+        <div class="module-num">Module 01</div>
+        <div class="module-title">The Lie You Were Told</div>
+        <div class="module-desc">Why you're confused about money — and why it was never your fault. Spoiler: school failed you on purpose.</div>
+        <div class="module-time">⏱ 7 min</div>
+      </div>
+      <div class="module-card reveal">
+        <div class="module-num">Module 02</div>
+        <div class="module-title">How Money Actually Moves</div>
+        <div class="module-desc">The three journeys every rupee takes — and why most people are stuck because one of them is completely missing.</div>
+        <div class="module-time">⏱ 8 min</div>
+      </div>
+      <div class="module-card reveal">
+        <div class="module-num">Module 03</div>
+        <div class="module-title">The Three Buckets System</div>
+        <div class="module-desc">Why budgets fail and what actually works. Set it up once, never need willpower again.</div>
+        <div class="module-time">⏱ 8 min</div>
+      </div>
+      <div class="module-card reveal">
+        <div class="module-num">Module 04</div>
+        <div class="module-title">The Compounding Secret</div>
+        <div class="module-desc">The one concept that makes people feel amazed and slightly sick at the same time. Numbers included.</div>
+        <div class="module-time">⏱ 9 min</div>
+      </div>
+      <div class="module-card reveal">
+        <div class="module-num">Module 05</div>
+        <div class="module-title">5 Mistakes Smart People Make</div>
+        <div class="module-desc">These feel right. They are wrong. Recognising them is worth more than any hot stock tip.</div>
+        <div class="module-time">⏱ 8 min</div>
+      </div>
+      <div class="module-card reveal">
+        <div class="module-num">Module 06</div>
+        <div class="module-title">Your First Move — This Week</div>
+        <div class="module-desc">Three specific actions. Not someday. This week. Because information without action is just entertainment.</div>
+        <div class="module-time">⏱ 7 min</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     HOW IT WORKS
+══════════════════════════════════════ -->
+<section style="background:var(--cream);">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">How it works</div>
+    <h2 class="section-title reveal">Learning that <em>actually sticks.</em></h2>
+    <p class="section-sub reveal">Built on cognitive science, not wishful thinking. Every design decision is backed by how the brain actually learns and retains.</p>
+
+    <div class="how-grid">
+      <div class="how-step reveal">
+        <div class="how-icon">🧠</div>
+        <div class="how-step-num">Step 01</div>
+        <div class="how-step-title">Basics First</div>
+        <div class="how-step-desc">Every module starts with the foundation. No jargon, no assumptions. The concept you need before the concept you want.</div>
+      </div>
+      <div class="how-step reveal">
+        <div class="how-icon">🎭</div>
+        <div class="how-step-num">Step 02</div>
+        <div class="how-step-title">Metaphor + Memes</div>
+        <div class="how-step-desc">Complex ideas through familiar worlds. Arjun's story makes it human. The memes make it memorable. Both make it stick.</div>
+      </div>
+      <div class="how-step reveal">
+        <div class="how-icon">✍️</div>
+        <div class="how-step-num">Step 03</div>
+        <div class="how-step-title">Apply Immediately</div>
+        <div class="how-step-desc">Every module ends with a specific action. Not "think about this" — but exactly what to do, how, and when.</div>
+      </div>
+      <div class="how-step reveal">
+        <div class="how-icon">🏆</div>
+        <div class="how-step-num">Step 04</div>
+        <div class="how-step-title">Quiz & Reinforce</div>
+        <div class="how-step-desc">A final quiz designed not to judge you but to lock concepts into memory. Retrieval practice — proven to double retention.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     ARJUN SECTION
+══════════════════════════════════════ -->
+<section class="arjun-section">
+  <div class="section-inner">
+    <div class="arjun-inner">
+      <div class="arjun-content reveal">
+        <div class="arjun-eyebrow">Meet your guide</div>
+        <h2 class="arjun-title">Learning with <em>Arjun</em> —<br>who's been there.</h2>
+        <p class="arjun-p">Arjun is a 29-year-old software engineer who earned well for five years and had absolutely no idea what to do with the money. Not because he was careless — because nobody ever properly explained it to him.</p>
+        <p class="arjun-p">He appears throughout every module — in memes, comics, and situations that will feel uncomfortably familiar. Because the best way to learn something is to see yourself in it.</p>
+        <div class="arjun-traits">
+          <div class="trait"><div class="trait-dot"></div>Appears in 12 original memes across the course</div>
+          <div class="trait"><div class="trait-dot"></div>6 distinct expressions — from Smug to Dead Inside</div>
+          <div class="trait"><div class="trait-dot"></div>Fully original character — owned by Basics First</div>
+          <div class="trait"><div class="trait-dot"></div>Reacts to your quiz score personally at the end</div>
+        </div>
+      </div>
+
+      <div class="arjun-visual reveal">
+        <div style="font-size:12px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:rgba(201,168,76,0.6); margin-bottom:16px; text-align:center;">Arjun's 6 Expressions</div>
+        <div class="arjun-expressions">
+          <div class="expr-card">
+            <svg width="60" height="80" viewBox="0 0 120 160"><use href="#a-smug"/></svg>
+            <div class="expr-name">Confident</div>
+          </div>
+          <div class="expr-card">
+            <svg width="60" height="80" viewBox="0 0 120 160"><use href="#a-shock"/></svg>
+            <div class="expr-name">Shocked</div>
+          </div>
+          <div class="expr-card">
+            <svg width="60" height="80" viewBox="0 0 120 160"><use href="#a-awkward"/></svg>
+            <div class="expr-name">Caught Out</div>
+          </div>
+          <div class="expr-card">
+            <svg width="60" height="80" viewBox="0 0 120 160"><use href="#a-proud"/></svg>
+            <div class="expr-name">Proud</div>
+          </div>
+          <div class="expr-card">
+            <svg width="60" height="80" viewBox="0 0 120 160"><use href="#a-dead"/></svg>
+            <div class="expr-name">Dead Inside</div>
+          </div>
+          <div class="expr-card">
+            <svg width="60" height="80" viewBox="0 0 120 160"><use href="#a-think"/></svg>
+            <div class="expr-name">Thinking</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     WHAT'S INSIDE
+══════════════════════════════════════ -->
+<section class="inside-section">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">What makes this different</div>
+    <h2 class="section-title reveal">Not a lecture.<br><em>A conversation.</em></h2>
+    <p class="section-sub reveal">Built for people who learn by doing, laughing, and having things explained like they're a real human being — not a finance exam candidate.</p>
+
+    <div class="inside-grid">
+      <div class="inside-list reveal">
+        <div class="inside-item">
+          <div class="inside-icon">🎭</div>
+          <div class="inside-text"><strong>Original memes with Arjun</strong><span>12 fully original, legally clean memes. No borrowed images — a character built for this platform that becomes your brand.</span></div>
+        </div>
+        <div class="inside-item">
+          <div class="inside-icon">👶</div>
+          <div class="inside-text"><strong>"Explain Like I'm 5" boxes</strong><span>Every complex concept gets a brutally simple version. Your brain anchors the simple version first — then the detailed explanation sticks to it.</span></div>
+        </div>
+        <div class="inside-item">
+          <div class="inside-icon">🌍</div>
+          <div class="inside-text"><strong>5 language versions</strong><span>English, Hinglish, Kannada-English, Spanish-English, Bahasa-English. Not formal translation — how real people actually talk.</span></div>
+        </div>
+        <div class="inside-item">
+          <div class="inside-icon">❌✅</div>
+          <div class="inside-text"><strong>Myth vs Reality cards</strong><span>The beliefs that feel right but cost you money. Seeing them side by side is the fastest way to dissolve them permanently.</span></div>
+        </div>
+        <div class="inside-item">
+          <div class="inside-icon">🏆</div>
+          <div class="inside-text"><strong>Achievement unlocks per module</strong><span>Small dopamine hits at the right moments. Not gamification for its own sake — proven to increase course completion rates significantly.</span></div>
+        </div>
+        <div class="inside-item">
+          <div class="inside-icon">⭐</div>
+          <div class="inside-text"><strong>Personalised quiz ending</strong><span>Arjun reacts to your score in character. Different expression, different message for every result. Because endings matter.</span></div>
+        </div>
+      </div>
+
+      <div class="inside-preview reveal">
+        <div class="preview-header">
+          <div class="pdot" style="background:#ff5f57"></div>
+          <div class="pdot" style="background:#ffbd2e"></div>
+          <div class="pdot" style="background:#28ca41"></div>
+          <span style="font-size:12px; color:rgba(250,248,242,0.3); margin-left:8px; font-family:'DM Sans',sans-serif;">basicsfirst.in/money</span>
+        </div>
+        <div class="preview-body">
+          <div style="font-size:10px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:rgba(201,168,76,0.6); margin-bottom:14px;">Course Modules</div>
+          <div class="preview-module"><span class="pm-num">01</span><span class="pm-title">The Lie You Were Told</span><span class="pm-time">7 min</span><span class="pm-icon">✅</span></div>
+          <div class="preview-module"><span class="pm-num">02</span><span class="pm-title">How Money Actually Moves</span><span class="pm-time">8 min</span><span class="pm-icon">✅</span></div>
+          <div class="preview-module"><span class="pm-num">03</span><span class="pm-title">The Three Buckets System</span><span class="pm-time">8 min</span><span class="pm-icon">▶️</span></div>
+          <div class="preview-module"><span class="pm-num">04</span><span class="pm-title">The Compounding Secret</span><span class="pm-time">9 min</span><span class="pm-icon">🔒</span></div>
+          <div class="preview-module"><span class="pm-num">05</span><span class="pm-title">5 Mistakes Smart People Make</span><span class="pm-time">8 min</span><span class="pm-icon">🔒</span></div>
+          <div class="preview-module"><span class="pm-num">06</span><span class="pm-title">Your First Move — This Week</span><span class="pm-time">7 min</span><span class="pm-icon">🔒</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     TESTIMONIALS
+══════════════════════════════════════ -->
+<section class="testimonials-section">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Early readers say</div>
+    <h2 class="section-title reveal">The reaction we<br><em>built this for.</em></h2>
+
+    <div class="testimonials-grid">
+      <div class="tcard reveal">
+        <div class="tcard-text">"I've been earning for 7 years and nobody — not my CA, not my dad, not any YouTube video — ever explained the basics this clearly. The Arjun memes hit uncomfortably close to home."</div>
+        <div class="tcard-person">
+          <div class="tcard-avatar">👩</div>
+          <div>
+            <div class="tcard-name">Sneha R.</div>
+            <div class="tcard-role">Product Manager, Bengaluru</div>
+            <div class="tcard-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard reveal">
+        <div class="tcard-text">"The 'Explain Like I'm 5' boxes alone are worth it. I finally understand compounding — not just the definition, but why it actually matters. Started my first SIP the same day."</div>
+        <div class="tcard-person">
+          <div class="tcard-avatar">👨</div>
+          <div>
+            <div class="tcard-name">Karthik S.</div>
+            <div class="tcard-role">Software Engineer, Chennai</div>
+            <div class="tcard-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard reveal">
+        <div class="tcard-text">"Shared this with my entire WhatsApp group. Three people started SIPs that week. That's the real review — it doesn't just teach, it makes people actually do something."</div>
+        <div class="tcard-person">
+          <div class="tcard-avatar">👩</div>
+          <div>
+            <div class="tcard-name">Priya M.</div>
+            <div class="tcard-role">Marketing Lead, Mumbai</div>
+            <div class="tcard-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FINAL CTA
+══════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="section-inner" style="padding:0;">
+    <div class="cta-inner reveal">
+      <div class="cta-tag">Free · No signup · Start now</div>
+      <h2 class="cta-title">45 minutes.<br><em>Permanent clarity.</em></h2>
+      <p class="cta-sub">The best time to understand money was when you got your first salary. The second best time is right now. Arjun's waiting.</p>
+      <a class="cta-btn" href="course-v3-arjun.html">
+        Start the Free Course
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="cta-meta">
+        <span>Completely free</span>
+        <span>No account needed</span>
+        <span>Works on any device</span>
+        <span>45 minutes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>Built with ❤️ by <strong>Basics First</strong> · The course nobody taught you, finally taught.</p>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.classList.add('visible');
+      // Stagger children if grid
+      const children = e.target.parentElement.querySelectorAll('.reveal');
+      children.forEach((child, i) => {
+        setTimeout(() => child.classList.add('visible'), i * 80);
+      });
+    }
+  });
+}, { threshold:0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Nav shadow on scroll
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('.nav');
+  nav.style.boxShadow = window.scrollY > 20 ? '0 2px 20px rgba(0,0,0,0.08)' : 'none';
+});
+</script>
+</body>
+</html>
